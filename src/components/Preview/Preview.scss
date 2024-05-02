@@ -1,0 +1,119 @@
+@use '../../styles/mixins.scss';
+@import '../../styles/variables.scss';
+
+.preview-block {
+    width: 100%;
+    height: 100vh;
+    background-color: $main-color;
+    color: $white;
+    color: var(--White, #FFF);
+    text-transform: uppercase;
+    @include mixins.flex(row, center, center);
+
+    .preview-block-container {
+        width: calc(100% - 364px);
+        max-width: 1076px;
+        height: auto;
+
+        @media (max-width: 840px) {
+            width: calc(100% - 40px);
+        }
+
+        @media (max-width: 500px) {
+            width: calc(100% - 32px);
+        }
+
+        .preview-logo {
+            width: 100%;
+            margin-bottom: 104px;
+
+            @media (max-width: 1200px) {
+                margin-bottom: 60px;
+            }
+
+            @media (max-width: 550px) {
+                margin-bottom: 40px;
+            }
+        }
+
+        .preview-info {
+            width: 100%;
+            @include mixins.flex(row, flex-start, flex-start);
+
+            @media (max-width: 1200px) {
+                width: calc(100% - 65px);
+                padding-left: 65px;
+                @include mixins.flex(column, flex-start, flex-start);
+            }
+
+            .preview-arrow {
+                margin-right: 95px;
+                gap: 8px;
+                @include mixins.flex(row, flex-start, center);
+                @include mixins.font(FixelDisplay, 16px, normal, 400, 90%);
+
+                @media (max-width: 1200px) {
+                    margin-bottom: 32px;
+                    margin-right: unset;
+                }
+
+                span {
+                    white-space: nowrap;
+                }
+
+                img {
+                    margin-bottom: 5px;
+
+                    @media (max-width: 1200px) {
+                        transform: rotate(90deg);
+                    }
+                }
+            }
+
+            .preview-socmedia {
+                gap: 12px;
+                @include mixins.flex(column, flex-start, flex-start);
+                @include mixins.font(FixelDisplay, 32px, normal, 600, 100%);
+
+                span {
+                    padding-bottom: 2px;
+                    position: relative;
+
+                    &::before {
+                        content: '';
+                        width: 0px;
+                        height: 1.5px;
+                        background-color: $white;
+                        position: absolute;
+                        bottom: 0px;
+                        right: 0px;
+                        transition: all 0.3s ease-in-out;
+                    }
+                }
+
+                span:hover::before {
+                    right: unset;
+                    left: 0px;
+                    width: 100%;
+                }
+            }
+
+            p {
+                width: 360px;
+                margin-left: auto;
+                @include mixins.font(FixelText, 24px, normal, 400, 110%);
+
+                @media (max-width: 1200px) {
+                    margin-left: unset;
+                    margin-bottom: 80px;
+                    order: -1;
+                }
+
+                @media (max-width: 550px) {
+                    width: calc(100% - 35px);
+                    @include mixins.font(FixelText, 16px, normal, 400, 120%);
+                }
+            }
+        }
+    }
+}
