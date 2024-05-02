@@ -29,7 +29,7 @@ const Preview = () => {
                             <span>facebook</span>
                         </a>
 
-                        <a href='mailto: VOVKAKOZUBSKYY@GMAIL.COM'>
+                        <a href='mailto: welcome@amonsul.tech'>
                             <span>email</span>
                         </a>
                     </div>
